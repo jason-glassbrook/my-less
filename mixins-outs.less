@@ -1,5 +1,5 @@
 ///-------------------------------------
-/// outs (margins)
+/// pout = push out = margins
 ///-------------------------------------
 /// t = top
 /// b = bottom
@@ -10,18 +10,18 @@
 /// tblr = top + bottom + left + right
 ///-------------------------------------
 
-.outs-tblr(
+.pout-tblr(
   @tblr : auto ;
   @tb : @tblr ;
   @lr : @tblr ;
   @t : @tb ; @b : @tb ;
   @l : @lr ; @r : @lr
 ) {
-  .outs-tb( @t ; @b );
-  .outs-lr( @l ; @r );
+  .pout-tb( @t ; @b );
+  .pout-lr( @l ; @r );
 }
 
-.outs-tb(
+.pout-tb(
   @tb : auto ;
   @t : @tb ; @b : @tb
 ) {
@@ -29,7 +29,7 @@
   margin-bottom : @b ;
 }
 
-.outs-lr(
+.pout-lr(
   @lr : auto ;
   @l : @lr ; @r : @lr
 ) {
@@ -41,7 +41,7 @@
 /// end elements (first and last elements)
 ///-----------------
 
-.end-outs-tb( @w : 0 ) {
+.end-pout-tb( @w : 0 ) {
 	&:first-child {
 		margin-top: @w;
 	}
@@ -50,7 +50,7 @@
 	}
 }
 
-.end-outs-lr( @w : 0 ) {
+.end-pout-lr( @w : 0 ) {
 	&:first-child {
 		margin-left: @w;
 	}

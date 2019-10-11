@@ -1,5 +1,5 @@
 ///-------------------------------------
-/// ins (padding)
+/// pin = push in = padding
 ///-------------------------------------
 /// t = top
 /// b = bottom
@@ -10,18 +10,18 @@
 /// tblr = top + bottom + left + right
 ///-------------------------------------
 
-.ins-tblr(
+.pin-tblr(
   @tblr : auto ;
   @tb : @tblr ;
   @lr : @tblr ;
   @t : @tb ; @b : @tb ;
   @l : @lr ; @r : @lr
 ) {
-  .ins-tb( @t ; @b );
-  .ins-lr( @l ; @r );
+  .pin-tb( @t ; @b );
+  .pin-lr( @l ; @r );
 }
 
-.ins-tb(
+.pin-tb(
   @tb : auto ;
   @t : @tb ; @b : @tb
 ) {
@@ -29,7 +29,7 @@
   padding-bottom : @b ;
 }
 
-.ins-lr(
+.pin-lr(
   @lr : auto ;
   @l : @lr ; @r : @lr
 ) {
