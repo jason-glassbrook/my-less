@@ -6,16 +6,38 @@
 /// hw = height + width
 ///-------------------------------------
 
+.hw-100of() { .h-100of(); .w-100of(); }
 .h-100of() { height: 100%; }
 .w-100of() { width: 100%; }
 
-.size-hw(
-  @hw :auto ;
+///-----------------
+/// specific size
+///-----------------
+
+.size(
+  @hw : auto ;
   @h : @hw ; @w : @hw
 ) {
 	height: @h;
 	width: @w;
 }
+
+.size-hw( @hw : auto ) {
+	height: @hw;
+	width: @hw;
+}
+
+.size-h( @h : auto ) {
+	height: @h;
+}
+
+.size-w( @w : auto ) {
+	width: @w;
+}
+
+///-----------------
+/// min size
+///-----------------
 
 .min-size-hw(
   @hw : auto ;
@@ -24,6 +46,10 @@
 	min-height: @h;
 	min-width: @w;
 }
+
+///-----------------
+/// max size
+///-----------------
 
 .max-size-hw(
   @hw :auto ;
