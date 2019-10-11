@@ -11,32 +11,70 @@
 /// lr = left + right
 /// tblr = top + bottom + left + right
 ///-------------------------------------
+/// cascade
+///-----------------
 
-.pin-tblr(
+.pin(
   @tblr : auto ;
   @tb : @tblr ;
   @lr : @tblr ;
   @t : @tb ; @b : @tb ;
   @l : @lr ; @r : @lr
 ) {
-  .pin-tb( @t ; @b );
-  .pin-lr( @l ; @r );
+  .pin-t-b-l-r( @t ; @b ; @l ; @r );
 }
 
-.pin-tb(
-  @tb : auto ;
-  @t : @tb ; @b : @tb
-) {
-  padding-top : @t ;
-  padding-bottom : @b ;
+///-----------------
+/// 1 at a time
+///-----------------
+
+.pin-t( @t ) { padding-top    : @t; }
+.pin-b( @b ) { padding-bottom : @b; }
+.pin-l( @l ) { padding-left   : @l; }
+.pin-r( @r ) { padding-right  : @r; }
+
+.pin-t-b( @t ; @b ) {
+  .pin-t( @t );
+  .pin-b( @b );
 }
 
-.pin-lr(
-  @lr : auto ;
-  @l : @lr ; @r : @lr
-) {
-  padding-left : @l ;
-  padding-right : @r ;
+.pin-l-r( @l ; @r ) {
+  .pin-l( @l );
+  .pin-r( @r );
+}
+
+.pin-t-b-l-r( @t ; @b ; @l ; @r ) {
+  .pin-t( @t );
+  .pin-b( @b );
+  .pin-l( @l );
+  .pin-r( @r );
+}
+
+///-----------------
+/// 2 at a time
+///-----------------
+
+.pin-tb( @tb ) {
+  .pin-t( @t );
+  .pin-b( @b );
+}
+
+.pin-lr( @lr ) {
+  .pin-l( @l );
+  .pin-r( @r );
+}
+
+.pin-tb-lr( @tb ; @lr ) {
+  .pin-tb( @tb );
+  .pin-lr( @lr );
+}
+
+///-----------------
+/// 4 at a time
+///-----------------
+
+.pin-tblr( @tblr ) {
+  padding: @tblr;
 }
 
 ///-------------------------------------
