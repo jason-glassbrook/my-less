@@ -11,32 +11,70 @@
 /// lr = left + right
 /// tblr = top + bottom + left + right
 ///-------------------------------------
+/// cascade
+///-----------------
 
-.pout-tblr(
+.pout(
   @tblr : auto ;
   @tb : @tblr ;
   @lr : @tblr ;
   @t : @tb ; @b : @tb ;
   @l : @lr ; @r : @lr
 ) {
-  .pout-tb( @t ; @b );
-  .pout-lr( @l ; @r );
+  .pout-t-b-l-r( @t ; @b ; @l ; @r );
 }
 
-.pout-tb(
-  @tb : auto ;
-  @t : @tb ; @b : @tb
-) {
-  margin-top : @t ;
-  margin-bottom : @b ;
+///-----------------
+/// 1 at a time
+///-----------------
+
+.pout-t( @t ) { margin-top    : @t; }
+.pout-b( @b ) { margin-bottom : @b; }
+.pout-l( @l ) { margin-left   : @l; }
+.pout-r( @r ) { margin-right  : @r; }
+
+.pout-t-b( @t ; @b ) {
+  .pout-t( @t );
+  .pout-b( @b );
 }
 
-.pout-lr(
-  @lr : auto ;
-  @l : @lr ; @r : @lr
-) {
-  margin-left : @l ;
-  margin-right : @r ;
+.pout-l-r( @l ; @r ) {
+  .pout-l( @l );
+  .pout-r( @r );
+}
+
+.pout-t-b-l-r( @t ; @b ; @l ; @r ) {
+  .pout-t( @t );
+  .pout-b( @b );
+  .pout-l( @l );
+  .pout-r( @r );
+}
+
+///-----------------
+/// 2 at a time
+///-----------------
+
+.pout-tb( @tb ) {
+  .pout-t( @t );
+  .pout-b( @b );
+}
+
+.pout-lr( @lr ) {
+  .pout-l( @l );
+  .pout-r( @r );
+}
+
+.pout-tb-lr( @tb ; @lr ) {
+  .pout-tb( @tb );
+  .pout-lr( @lr );
+}
+
+///-----------------
+/// 4 at a time
+///-----------------
+
+.pout-tblr( @tblr ) {
+  margin: @tblr;
 }
 
 ///-----------------
