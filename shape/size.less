@@ -5,18 +5,6 @@
 /// w = width
 /// hw = height + width
 ///-------------------------------------
-/// cascade
-///-----------------
-
-.size(
-	@hw : auto ;
-	@h : @hw ; @w : @hw
-) {
-	height: @h;
-	width: @w;
-}
-
-///-----------------
 /// single properties
 ///-----------------
 
@@ -27,12 +15,23 @@
 /// multiple properties
 ///-----------------
 
-.size-hw( @hw ) {
-	.size-hw( @hw ; @hw );
-}
 .size-hw( @h ; @w ) {
 	.size-h( @h );
 	.size-w( @w );
+}
+.size-hw( @hw ) {
+	.size-hw( @hw ; @hw );
+}
+
+///-----------------
+/// cascade all properties
+///-----------------
+
+.size-all(
+	@hw : auto ;
+	@h : @hw ; @w : @hw
+) {
+	.size-hw( @h ; @w );
 }
 
 ///-----------------
