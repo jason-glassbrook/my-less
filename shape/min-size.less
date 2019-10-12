@@ -1,0 +1,28 @@
+///-------------------------------------
+/// MIN SIZE
+///-------------------------------------
+/// h = height
+/// w = width
+/// hw = height + width
+///-------------------------------------
+
+.min-size(
+  @hw : auto ;
+  @h : @hw ; @w : @hw
+) {
+	min-height: @h;
+	min-width: @w;
+}
+
+.min-size-hw( @hw : auto ) {
+	min-height: @hw;
+	min-width: @hw;
+}
+
+.min-size-h( @h : auto ) {
+	min-height: @h;
+}
+
+.min-size-w( @w : auto ) {
+	min-width: @w;
+}

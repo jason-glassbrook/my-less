@@ -6,14 +6,6 @@
 /// hw = height + width
 ///-------------------------------------
 
-.hw-100of() { .h-100of(); .w-100of(); }
-.h-100of() { height: 100%; }
-.w-100of() { width: 100%; }
-
-///-----------------
-/// specific size
-///-----------------
-
 .size(
   @hw : auto ;
   @h : @hw ; @w : @hw
@@ -36,53 +28,7 @@
 }
 
 ///-----------------
-/// min size
-///-----------------
 
-.min-size(
-  @hw : auto ;
-  @h : @hw ; @w : @hw
-) {
-	min-height: @h;
-	min-width: @w;
-}
-
-.min-size-hw( @hw : auto ) {
-	min-height: @hw;
-	min-width: @hw;
-}
-
-.min-size-h( @h : auto ) {
-	min-height: @h;
-}
-
-.min-size-w( @w : auto ) {
-	min-width: @w;
-}
-
-///-----------------
-/// max size
-///-----------------
-
-.max-size(
-  @hw :auto ;
-  @h : @hw ; @w : @hw
-) {
-	max-height: @h;
-	max-width: @w;
-}
-
-.max-size-hw( @hw : auto ) {
-	max-height: @hw;
-	max-width: @hw;
-}
-
-.max-size-h( @h : auto ) {
-	max-height: @h;
-}
-
-.max-size-w( @w : auto ) {
-	max-width: @w;
-}
-
-///-------------------------------------
+.hw-100of() { .h-100of(); .w-100of(); }
+.h-100of() { height: 100%; }
+.w-100of() { width: 100%; }
