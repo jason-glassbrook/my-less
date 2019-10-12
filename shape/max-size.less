@@ -5,24 +5,31 @@
 /// w = width
 /// hw = height + width
 ///-------------------------------------
+/// single properties
+///-----------------
+
+.max-size-h( @h ) { max-height : @h; }
+.max-size-w( @w ) { max-width  : @w; }
+
+///-----------------
+/// multiple properties
+///-----------------
+
+.max-size-hw( @h ; @w ) {
+	.max-size-h( @h );
+	.max-size-w( @w );
+}
+.max-size-hw( @hw ) {
+	.max-size-hw( @hw ; @hw );
+}
+
+///-----------------
+/// cascade all properties
+///-----------------
 
 .max-size(
-  @hw : auto ;
-  @h : @hw ; @w : @hw
+	@hw : auto ;
+	@h : @hw ; @w : @hw
 ) {
-	max-height: @h;
-	max-width: @w;
-}
-
-.max-size-hw( @hw : auto ) {
-	max-height: @hw;
-	max-width: @hw;
-}
-
-.max-size-h( @h : auto ) {
-	max-height: @h;
-}
-
-.max-size-w( @w : auto ) {
-	max-width: @w;
+	.max-size-hw( @h ; @w );
 }

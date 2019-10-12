@@ -5,24 +5,31 @@
 /// w = width
 /// hw = height + width
 ///-------------------------------------
+/// single properties
+///-----------------
+
+.min-size-h( @h ) { min-height : @h; }
+.min-size-w( @w ) { min-width  : @w; }
+
+///-----------------
+/// multiple properties
+///-----------------
+
+.min-size-hw( @h ; @w ) {
+	.min-size-h( @h );
+	.min-size-w( @w );
+}
+.min-size-hw( @hw ) {
+	.min-size-hw( @hw ; @hw );
+}
+
+///-----------------
+/// cascade all properties
+///-----------------
 
 .min-size(
-  @hw : auto ;
-  @h : @hw ; @w : @hw
+	@hw : auto ;
+	@h : @hw ; @w : @hw
 ) {
-	min-height: @h;
-	min-width: @w;
-}
-
-.min-size-hw( @hw : auto ) {
-	min-height: @hw;
-	min-width: @hw;
-}
-
-.min-size-h( @h : auto ) {
-	min-height: @h;
-}
-
-.min-size-w( @w : auto ) {
-	min-width: @w;
+	.min-size-hw( @h ; @w );
 }
