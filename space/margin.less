@@ -9,7 +9,51 @@
 /// lr = left + right
 /// tblr = top + bottom + left + right
 ///-------------------------------------
-/// cascade
+/// single properties
+///-----------------
+
+.margin-t( @t ) { margin-top    : @t; }
+.margin-b( @b ) { margin-bottom : @b; }
+.margin-l( @l ) { margin-left   : @l; }
+.margin-r( @r ) { margin-right  : @r; }
+
+///-----------------
+/// multiple properties
+///-----------------
+
+/// top + bottom
+.margin-tb( @t ; @b ) {
+  .margin-t( @t );
+  .margin-b( @b );
+}
+.margin-tb( @tb ) {
+  .margin-tb( @tb ; @tb );
+}
+
+
+/// left + right
+.margin-lr( @l ; @r ) {
+  .margin-l( @l );
+  .margin-r( @r );
+}
+.margin-lr( @lr ) {
+  .margin-lr( @lr ; @lr );
+}
+
+/// top + bottom + left + right
+.margin-tblr( @t ; @b ; @l ; @r ) {
+  .margin-tb( @t ; @b );
+  .margin-lr( @l ; @r );
+}
+.margin-tblr( @tb ; @lr ) {
+  .margin-tblr( @tb ; @tb ; @lr ; @lr );
+}
+.margin-tblr( @tblr ) {
+  .margin-tblr( @tblr ; @tblr );
+}
+
+///-----------------
+/// cascade all properties
 ///-----------------
 
 .margin(
@@ -19,60 +63,7 @@
   @t : @tb ; @b : @tb ;
   @l : @lr ; @r : @lr
 ) {
-  .margin-t-b-l-r( @t ; @b ; @l ; @r );
-}
-
-///-----------------
-/// set 1 at a time
-///-----------------
-
-.margin-t( @t ) { margin-top    : @t; }
-.margin-b( @b ) { margin-bottom : @b; }
-.margin-l( @l ) { margin-left   : @l; }
-.margin-r( @r ) { margin-right  : @r; }
-
-.margin-t-b( @t ; @b ) {
-  .margin-t( @t );
-  .margin-b( @b );
-}
-
-.margin-l-r( @l ; @r ) {
-  .margin-l( @l );
-  .margin-r( @r );
-}
-
-.margin-t-b-l-r( @t ; @b ; @l ; @r ) {
-  .margin-t( @t );
-  .margin-b( @b );
-  .margin-l( @l );
-  .margin-r( @r );
-}
-
-///-----------------
-/// set 2 at a time
-///-----------------
-
-.margin-tb( @tb ) {
-  .margin-t( @t );
-  .margin-b( @b );
-}
-
-.margin-lr( @lr ) {
-  .margin-l( @l );
-  .margin-r( @r );
-}
-
-.margin-tb-lr( @tb ; @lr ) {
-  .margin-tb( @tb );
-  .margin-lr( @lr );
-}
-
-///-----------------
-/// set 4 at a time
-///-----------------
-
-.margin-tblr( @tblr ) {
-  margin: @tblr;
+  .margin-tblr( @t ; @b ; @l ; @r );
 }
 
 ///-----------------
