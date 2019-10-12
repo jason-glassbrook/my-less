@@ -5,28 +5,38 @@
 /// w = width
 /// hw = height + width
 ///-------------------------------------
+/// cascade
+///-----------------
 
 .size(
-  @hw : auto ;
-  @h : @hw ; @w : @hw
+	@hw : auto ;
+	@h : @hw ; @w : @hw
 ) {
 	height: @h;
 	width: @w;
 }
 
-.size-hw( @hw : auto ) {
-	height: @hw;
-	width: @hw;
+///-----------------
+/// single properties
+///-----------------
+
+.size-h( @h ) { height : @h; }
+.size-w( @w ) { width  : @w; }
+
+///-----------------
+/// multiple properties
+///-----------------
+
+.size-hw( @hw ) {
+	.size-hw( @hw ; @hw );
+}
+.size-hw( @h ; @w ) {
+	.size-h( @h );
+	.size-w( @w );
 }
 
-.size-h( @h : auto ) {
-	height: @h;
-}
-
-.size-w( @w : auto ) {
-	width: @w;
-}
-
+///-----------------
+/// extra
 ///-----------------
 
 .hw-100of() { .h-100of(); .w-100of(); }
