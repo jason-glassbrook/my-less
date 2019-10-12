@@ -1,0 +1,76 @@
+///-------------------------------------
+/// PADDING
+///-------------------------------------
+/// t = top
+/// b = bottom
+/// l = left
+/// r = right
+/// tb = top + bottom
+/// lr = left + right
+/// tblr = top + bottom + left + right
+///-------------------------------------
+/// cascade
+///-----------------
+
+.padding(
+  @tblr : auto ;
+  @tb : @tblr ;
+  @lr : @tblr ;
+  @t : @tb ; @b : @tb ;
+  @l : @lr ; @r : @lr
+) {
+  .padding-t-b-l-r( @t ; @b ; @l ; @r );
+}
+
+///-----------------
+/// set 1 at a time
+///-----------------
+
+.padding-t( @t ) { padding-top    : @t; }
+.padding-b( @b ) { padding-bottom : @b; }
+.padding-l( @l ) { padding-left   : @l; }
+.padding-r( @r ) { padding-right  : @r; }
+
+.padding-t-b( @t ; @b ) {
+  .padding-t( @t );
+  .padding-b( @b );
+}
+
+.padding-l-r( @l ; @r ) {
+  .padding-l( @l );
+  .padding-r( @r );
+}
+
+.padding-t-b-l-r( @t ; @b ; @l ; @r ) {
+  .padding-t( @t );
+  .padding-b( @b );
+  .padding-l( @l );
+  .padding-r( @r );
+}
+
+///-----------------
+/// set 2 at a time
+///-----------------
+
+.padding-tb( @tb ) {
+  .padding-t( @t );
+  .padding-b( @b );
+}
+
+.padding-lr( @lr ) {
+  .padding-l( @l );
+  .padding-r( @r );
+}
+
+.padding-tb-lr( @tb ; @lr ) {
+  .padding-tb( @tb );
+  .padding-lr( @lr );
+}
+
+///-----------------
+/// set 4 at a time
+///-----------------
+
+.padding-tblr( @tblr ) {
+  padding: @tblr;
+}

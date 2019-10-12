@@ -1,8 +1,6 @@
 ///-------------------------------------
-/// PUSH OUT
+/// MARGIN
 ///-------------------------------------
-/// pout = push out = margins
-///
 /// t = top
 /// b = bottom
 /// l = left
@@ -14,66 +12,66 @@
 /// cascade
 ///-----------------
 
-.pout(
+.margin(
   @tblr : auto ;
   @tb : @tblr ;
   @lr : @tblr ;
   @t : @tb ; @b : @tb ;
   @l : @lr ; @r : @lr
 ) {
-  .pout-t-b-l-r( @t ; @b ; @l ; @r );
+  .margin-t-b-l-r( @t ; @b ; @l ; @r );
 }
 
 ///-----------------
 /// set 1 at a time
 ///-----------------
 
-.pout-t( @t ) { margin-top    : @t; }
-.pout-b( @b ) { margin-bottom : @b; }
-.pout-l( @l ) { margin-left   : @l; }
-.pout-r( @r ) { margin-right  : @r; }
+.margin-t( @t ) { margin-top    : @t; }
+.margin-b( @b ) { margin-bottom : @b; }
+.margin-l( @l ) { margin-left   : @l; }
+.margin-r( @r ) { margin-right  : @r; }
 
-.pout-t-b( @t ; @b ) {
-  .pout-t( @t );
-  .pout-b( @b );
+.margin-t-b( @t ; @b ) {
+  .margin-t( @t );
+  .margin-b( @b );
 }
 
-.pout-l-r( @l ; @r ) {
-  .pout-l( @l );
-  .pout-r( @r );
+.margin-l-r( @l ; @r ) {
+  .margin-l( @l );
+  .margin-r( @r );
 }
 
-.pout-t-b-l-r( @t ; @b ; @l ; @r ) {
-  .pout-t( @t );
-  .pout-b( @b );
-  .pout-l( @l );
-  .pout-r( @r );
+.margin-t-b-l-r( @t ; @b ; @l ; @r ) {
+  .margin-t( @t );
+  .margin-b( @b );
+  .margin-l( @l );
+  .margin-r( @r );
 }
 
 ///-----------------
 /// set 2 at a time
 ///-----------------
 
-.pout-tb( @tb ) {
-  .pout-t( @t );
-  .pout-b( @b );
+.margin-tb( @tb ) {
+  .margin-t( @t );
+  .margin-b( @b );
 }
 
-.pout-lr( @lr ) {
-  .pout-l( @l );
-  .pout-r( @r );
+.margin-lr( @lr ) {
+  .margin-l( @l );
+  .margin-r( @r );
 }
 
-.pout-tb-lr( @tb ; @lr ) {
-  .pout-tb( @tb );
-  .pout-lr( @lr );
+.margin-tb-lr( @tb ; @lr ) {
+  .margin-tb( @tb );
+  .margin-lr( @lr );
 }
 
 ///-----------------
 /// set 4 at a time
 ///-----------------
 
-.pout-tblr( @tblr ) {
+.margin-tblr( @tblr ) {
   margin: @tblr;
 }
 
@@ -81,7 +79,7 @@
 /// end elements (first and last elements)
 ///-----------------
 
-.end-pout-tb( @w : 0 ) {
+.end-margin-tb( @w : 0 ) {
 	&:first-child {
 		margin-top: @w;
 	}
@@ -90,7 +88,7 @@
 	}
 }
 
-.end-pout-lr( @w : 0 ) {
+.end-margin-lr( @w : 0 ) {
 	&:first-child {
 		margin-left: @w;
 	}
@@ -98,5 +96,3 @@
 		margin-right: @w;
 	}
 }
-
-///-------------------------------------
