@@ -1,0 +1,35 @@
+///-------------------------------------
+/// MAX SIZE
+///-------------------------------------
+/// h = height
+/// w = width
+/// hw = height + width
+///-------------------------------------
+/// single properties
+///-----------------
+
+.max-size-h( @h ) { max-height : @h; }
+.max-size-w( @w ) { max-width  : @w; }
+
+///-----------------
+/// multiple properties
+///-----------------
+
+.max-size-hw( @h ; @w ) {
+	.max-size-h( @h );
+	.max-size-w( @w );
+}
+.max-size-hw( @hw ) {
+	.max-size-hw( @hw ; @hw );
+}
+
+///-----------------
+/// cascade all properties
+///-----------------
+
+.max-size(
+	@hw : auto ;
+	@h : @hw ; @w : @hw
+) {
+	.max-size-hw( @h ; @w );
+}

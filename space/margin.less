@@ -1,0 +1,89 @@
+///-------------------------------------
+/// MARGIN
+///-------------------------------------
+/// t = top
+/// b = bottom
+/// l = left
+/// r = right
+/// tb = top + bottom
+/// lr = left + right
+/// tblr = top + bottom + left + right
+///-------------------------------------
+/// single properties
+///-----------------
+
+.margin-t( @t ) { margin-top    : @t; }
+.margin-b( @b ) { margin-bottom : @b; }
+.margin-l( @l ) { margin-left   : @l; }
+.margin-r( @r ) { margin-right  : @r; }
+
+///-----------------
+/// multiple properties
+///-----------------
+
+/// top + bottom
+.margin-tb( @t ; @b ) {
+  .margin-t( @t );
+  .margin-b( @b );
+}
+.margin-tb( @tb ) {
+  .margin-tb( @tb ; @tb );
+}
+
+
+/// left + right
+.margin-lr( @l ; @r ) {
+  .margin-l( @l );
+  .margin-r( @r );
+}
+.margin-lr( @lr ) {
+  .margin-lr( @lr ; @lr );
+}
+
+/// top + bottom + left + right
+.margin-tblr( @t ; @b ; @l ; @r ) {
+  .margin-tb( @t ; @b );
+  .margin-lr( @l ; @r );
+}
+.margin-tblr( @tb ; @lr ) {
+  .margin-tblr( @tb ; @tb ; @lr ; @lr );
+}
+.margin-tblr( @tblr ) {
+  .margin-tblr( @tblr ; @tblr );
+}
+
+///-----------------
+/// cascade all properties
+///-----------------
+
+.margin(
+  @tblr : auto ;
+  @tb : @tblr ;
+  @lr : @tblr ;
+  @t : @tb ; @b : @tb ;
+  @l : @lr ; @r : @lr
+) {
+  .margin-tblr( @t ; @b ; @l ; @r );
+}
+
+///-----------------
+/// end elements (first and last elements)
+///-----------------
+
+.end-margin-tb( @w : 0 ) {
+	&:first-child {
+		margin-top: @w;
+	}
+	&:last-child {
+		margin-bottom: @w;
+	}
+}
+
+.end-margin-lr( @w : 0 ) {
+	&:first-child {
+		margin-left: @w;
+	}
+	&:last-child {
+		margin-right: @w;
+	}
+}
