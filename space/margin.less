@@ -27,9 +27,11 @@
   .margin-b( @b );
 }
 .margin-tb( @tb ) {
-  .margin-tb( @tb ; @tb );
+  .margin-tb(
+    @t: @tb ;
+    @b: @tb
+  );
 }
-
 
 /// left + right
 .margin-lr( @l ; @r ) {
@@ -37,7 +39,10 @@
   .margin-r( @r );
 }
 .margin-lr( @lr ) {
-  .margin-lr( @lr ; @lr );
+  .margin-lr(
+    @l: @lr ;
+    @r: @lr
+  );
 }
 
 /// top + bottom + left + right
@@ -46,10 +51,18 @@
   .margin-lr( @l ; @r );
 }
 .margin-tblr( @tb ; @lr ) {
-  .margin-tblr( @tb ; @tb ; @lr ; @lr );
+  .margin-tblr(
+    @t: @tb ;
+    @b: @tb ;
+    @l: @lr ;
+    @r: @lr
+  );
 }
 .margin-tblr( @tblr ) {
-  .margin-tblr( @tblr ; @tblr );
+  .margin-tblr(
+    @tb: @tblr ;
+    @lr: @tblr
+  );
 }
 
 ///-----------------
@@ -57,11 +70,9 @@
 ///-----------------
 
 .margin(
-  @tblr : auto ;
-  @tb : @tblr ;
-  @lr : @tblr ;
-  @t : @tb ; @b : @tb ;
-  @l : @lr ; @r : @lr
+  @tblr: auto ;
+  @tb: @tblr ; @lr: @tblr ;
+  @t: @tb ; @b: @tb ; @l: @lr ; @r: @lr
 ) {
   .margin-tblr( @t ; @b ; @l ; @r );
 }
