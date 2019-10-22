@@ -20,7 +20,10 @@
 	.min-size-w( @w );
 }
 .min-size-hw( @hw ) {
-	.min-size-hw( @hw ; @hw );
+	.min-size-hw(
+		@h: @hw ;
+		@w: @hw
+	);
 }
 
 ///-----------------
@@ -28,8 +31,8 @@
 ///-----------------
 
 .min-size(
-	@hw : auto ;
-	@h : @hw ; @w : @hw
+	@hw: auto ;
+	@h: @hw ; @w: @hw
 ) {
 	.min-size-hw( @h ; @w );
 }

@@ -20,7 +20,10 @@
 	.size-w( @w );
 }
 .size-hw( @hw ) {
-	.size-hw( @hw ; @hw );
+	.size-hw(
+		@h: @hw ;
+		@w: @hw
+	);
 }
 
 ///-----------------
@@ -28,8 +31,8 @@
 ///-----------------
 
 .size(
-	@hw : auto ;
-	@h : @hw ; @w : @hw
+	@hw: auto ;
+	@h: @hw ; @w: @hw
 ) {
 	.size-hw( @h ; @w );
 }

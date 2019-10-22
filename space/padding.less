@@ -1,6 +1,10 @@
-///-------------------------------------
+///*****************************************************************************
 /// PADDING
-///-------------------------------------
+///-----------------------------------------------------------------------------
+/// ==== names ====
+/// padding , pa
+/// 
+/// ==== parameters ====
 /// t = top
 /// b = bottom
 /// l = left
@@ -8,18 +12,20 @@
 /// tb = top + bottom
 /// lr = left + right
 /// tblr = top + bottom + left + right
-///-------------------------------------
+///*****************************************************************************
+
+///*************************************
 /// single properties
-///-----------------
+///*************************************
 
 .padding-t( @t ) { padding-top    : @t; }
 .padding-b( @b ) { padding-bottom : @b; }
 .padding-l( @l ) { padding-left   : @l; }
 .padding-r( @r ) { padding-right  : @r; }
 
-///-----------------
+///*************************************
 /// multiple properties
-///-----------------
+///*************************************
 
 /// top + bottom
 .padding-tb( @t ; @b ) {
@@ -27,9 +33,11 @@
   .padding-b( @b );
 }
 .padding-tb( @tb ) {
-  .padding-tb( @tb ; @tb );
+  .padding-tb(
+    @t: @tb ;
+    @b: @tb
+  );
 }
-
 
 /// left + right
 .padding-lr( @l ; @r ) {
@@ -37,7 +45,10 @@
   .padding-r( @r );
 }
 .padding-lr( @lr ) {
-  .padding-lr( @lr ; @lr );
+  .padding-lr(
+    @l: @lr ;
+    @r: @lr
+  );
 }
 
 /// top + bottom + left + right
@@ -46,22 +57,97 @@
   .padding-lr( @l ; @r );
 }
 .padding-tblr( @tb ; @lr ) {
-  .padding-tblr( @tb ; @tb ; @lr ; @lr );
+  .padding-tblr(
+    @t: @tb ;
+    @b: @tb ;
+    @l: @lr ;
+    @r: @lr
+  );
 }
 .padding-tblr( @tblr ) {
-  .padding-tblr( @tblr ; @tblr );
+  .padding-tblr(
+    @tb: @tblr ;
+    @lr: @tblr
+  );
 }
 
-///-----------------
+///*************************************
 /// cascade all properties
-///-----------------
+///*************************************
 
+///---- DOES NOT WORK AS INTENDED ----///
 .padding(
-  @tblr : auto ;
-  @tb : @tblr ;
-  @lr : @tblr ;
-  @t : @tb ; @b : @tb ;
-  @l : @lr ; @r : @lr
+  @tblr: auto ;
+  @tb: @tblr ; @lr: @tblr ;
+  @t: @tb ; @b: @tb ; @l: @lr ; @r: @lr
 ) {
   .padding-tblr( @t ; @b ; @l ; @r );
 }
+
+///*************************************
+/// end elements (first and last elements)
+///*************************************
+
+.end-padding-tb( @t ; @b ) {
+	&:first-child {
+		.padding-t( @t );
+	}
+	&:last-child {
+		.padding-b( @b );
+	}
+}
+.end-padding-tb( @tb ) {
+  .end-padding-tb(
+    @t: @tb ;
+    @b: @tb
+  );
+}
+
+.end-padding-lr( @l ; @r ) {
+	&:first-child {
+		.padding-l( @l );
+	}
+	&:last-child {
+		.padding-r( @r );
+	}
+}
+.end-padding-lr( @lr ) {
+  .end-padding-lr(
+    @l: @lr ;
+    @r: @lr
+  );
+}
+
+///*****************************************************************************
+/// SHORT NAMES
+///*****************************************************************************
+
+.pa-t( @t ) { .padding-t( @t ); }
+.pa-b( @b ) { .padding-b( @b ); }
+.pa-l( @l ) { .padding-l( @l ); }
+.pa-r( @r ) { .padding-r( @r ); }
+
+.pa-tb( @t ; @b ) { .padding-tb( @t ; @b ); }
+.pa-tb( @tb ) { .padding-tb( @tb ); }
+
+.pa-lr( @l ; @r ) { .padding-lr( @l ; @r ); }
+.pa-lr( @lr ) { .padding-lr( @lr ); }
+
+.pa-tblr( @t ; @b ; @l ; @r ) { .padding-tblr( @t ; @b ; @l ; @r ); }
+.pa-tblr( @tb ; @lr ) { .padding-tblr( @tb ; @lr ); }
+.pa-tblr( @tblr ) { .padding-tblr( @tblr ); }
+
+///---- DOES NOT WORK AS INTENDED ----///
+.pa(
+  @tblr: auto ;
+  @tb: @tblr ; @lr: @tblr ;
+  @t: @tb ; @b: @tb ; @l: @lr ; @r: @lr
+) {
+  .padding-tblr( @t ; @b ; @l ; @r );
+}
+
+.end-pa-tb( @t ; @b ) { .end-padding-tb( @t ; @b ); }
+.end-pa-tb( @tb ) { .end-padding-tb( @tb ); }
+
+.end-pa-lr( @l ; @r ) { .end-padding-lr( @l ; @r ); }
+.end-pa-lr( @lr ) { .end-padding-lr( @lr ); }
