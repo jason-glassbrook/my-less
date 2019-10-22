@@ -75,6 +75,7 @@
 /// cascade all properties
 ///*************************************
 
+///---- DOES NOT WORK AS INTENDED ----///
 .padding(
   @tblr: auto ;
   @tb: @tblr ; @lr: @tblr ;
@@ -136,16 +137,13 @@
 .pa-tblr( @tb ; @lr ) { .padding-tblr( @tb ; @lr ); }
 .pa-tblr( @tblr ) { .padding-tblr( @tblr ); }
 
+///---- DOES NOT WORK AS INTENDED ----///
 .pa(
   @tblr: auto ;
   @tb: @tblr ; @lr: @tblr ;
   @t: @tb ; @b: @tb ; @l: @lr ; @r: @lr
 ) {
-  .padding(
-    @tblr: auto ;
-    @tb: @tblr ; @lr: @tblr ;
-    @t: @tb ; @b: @tb ; @l: @lr ; @r: @lr
-  );
+  .padding-tblr( @t ; @b ; @l ; @r );
 }
 
 .end-pa-tb( @t ; @b ) { .end-padding-tb( @t ; @b ); }

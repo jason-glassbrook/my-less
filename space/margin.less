@@ -141,11 +141,7 @@
   @tb: @tblr ; @lr: @tblr ;
   @t: @tb ; @b: @tb ; @l: @lr ; @r: @lr
 ) {
-  .margin(
-    @tblr: auto ;
-    @tb: @tblr ; @lr: @tblr ;
-    @t: @tb ; @b: @tb ; @l: @lr ; @r: @lr
-  );
+  .margin-tblr( @t ; @b ; @l ; @r );
 }
 
 .end-ma-tb( @t ; @b ) { .end-margin-tb( @t ; @b ); }
