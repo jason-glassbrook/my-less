@@ -1,25 +1,27 @@
-///-------------------------------------
-/// MARGIN
-///-------------------------------------
-/// t = top
-/// b = bottom
-/// l = left
-/// r = right
-/// tb = top + bottom
-/// lr = left + right
-/// tblr = top + bottom + left + right
-///-------------------------------------
-/// single properties
-///-----------------
+/*******************************************************************************
+  MARGIN
+--------------------------------------------------------------------------------
+  t = top
+  b = bottom
+  l = left
+  r = right
+  tb = top + bottom
+  lr = left + right
+  tblr = top + bottom + left + right
+*******************************************************************************/
+
+/***************************************
+  single properties
+***************************************/
 
 .margin-t( @t ) { margin-top    : @t; }
 .margin-b( @b ) { margin-bottom : @b; }
 .margin-l( @l ) { margin-left   : @l; }
 .margin-r( @r ) { margin-right  : @r; }
 
-///-----------------
-/// multiple properties
-///-----------------
+/***************************************
+  multiple properties
+***************************************/
 
 /// top + bottom
 .margin-tb( @t ; @b ) {
@@ -65,9 +67,9 @@
   );
 }
 
-///-----------------
-/// cascade all properties
-///-----------------
+/***************************************
+  cascade all properties
+***************************************/
 
 .margin(
   @tblr: auto ;
@@ -77,9 +79,9 @@
   .margin-tblr( @t ; @b ; @l ; @r );
 }
 
-///-----------------
-/// end elements (first and last elements)
-///-----------------
+/***************************************
+  end elements (first and last elements)
+***************************************/
 
 .end-margin-tb( @w : 0 ) {
 	&:first-child {
