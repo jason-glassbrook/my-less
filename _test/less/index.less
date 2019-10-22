@@ -10,8 +10,8 @@
 ///-------------------------------------
 
 @size-1: 10px; @bg-color-1: #b66; @eln-color-1: #833;
-@size-2: 10px; @bg-color-2: #6b6; @eln-color-2: #383;
-@size-3: 10px; @bg-color-3: #66b; @eln-color-3: #338;
+@size-2: 20px; @bg-color-2: #6b6; @eln-color-2: #383;
+@size-3: 30px; @bg-color-3: #66b; @eln-color-3: #338;
 
 body {
   .flex-space-between(@main-axis: column);
@@ -23,8 +23,8 @@ body {
   .level-1 {
     .flex-space-between(@main-axis: row);
 
-    .margin(@size-1);
-    .padding(@size-1);
+    .ma( @tb: @size-1 ; @r: @size-2);
+    .pa( @tb: @size-1 ; @r: @size-2);
 
     background-color: @bg-color-1;
     border: 2px solid @eln-color-1;
@@ -32,8 +32,8 @@ body {
     .level-2 {
       .flex-space-between(@main-axis: column);
 
-      .margin(@size-2);
-      .padding(@size-2);
+      .ma(@size-2);
+      .pa(@size-2);
 
       background-color: @bg-color-2;
       border: 2px solid @eln-color-2;
@@ -41,8 +41,8 @@ body {
       .level-3 {
         .flex-space-between(@main-axis: row);
 
-        .margin(@size-3);
-        .padding(@size-3);
+        .ma(@size-3);
+        .pa(@size-3);
 
         background-color: @bg-color-3;
         border: 2px solid @eln-color-3;
